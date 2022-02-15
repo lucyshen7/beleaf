@@ -4,9 +4,9 @@
  */
 exports.up = function(knex) {
   return knex.schema.createTable('posts', (table) => {
-    table.increments();
+    table.increments('id').primary();
     table.integer('user_id');
-    table.foreign('user_id').references('users.id');
+    table.foreign('user_id').references('users.id').onUpdate('CASCADE').onDelete('CASCADE');
     table.string('title');
     table.string('photo');
     table.text('description');
