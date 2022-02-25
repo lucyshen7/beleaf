@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import { Segment, Button, Dropdown, Menu, Image, Icon } from 'semantic-ui-react';
+import { Segment, Button, Dropdown, Menu, Image, Icon, Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { getUserById } from '../helpers/selectors';
@@ -8,7 +8,7 @@ import { getUserById } from '../helpers/selectors';
 export default function Navbar({ users, user, login, logout }) {
   const loggedUser = getUserById(users, user);
 
-  const dashboardOrHomepage = () => {};
+  const dashboardOrHomepage = () => { };
 
   const renderAuthButton = () => {
     if (user) {
@@ -67,6 +67,7 @@ export default function Navbar({ users, user, login, logout }) {
           <Menu.Item className="navbar-logo">
             <Image src={logo} size="small" />
           </Menu.Item>
+          <Label tag as="a" color="olive" style={{ fontSize: "16px" }}>DEMO MODE</Label>
         </Link>
         <Menu.Menu position="right">{renderAuthButton()}</Menu.Menu>
       </Menu>

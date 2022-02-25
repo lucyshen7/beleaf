@@ -312,6 +312,10 @@ div.ui.header.reminders-title {
 
 .plant-info-card {
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 50px;
+  justify-content: center;
 }
 
 .nickname-plant {

@@ -41,13 +41,13 @@ export default function ViewPlant({ plant, user, species, closeViewPlant }) {
         </Button>
         <Grid verticalAlign="middle" centered>
           <Grid.Column width={5}>
-            <Image src={plant.photo} size="large" />
+            <Image src={plant.photo} size="large" rounded />
           </Grid.Column>
           <Grid.Column width={6} textAlign="center">
             <div className="plant-info">
               <h2>Scientific Name: {plant.scientific_name}</h2>
               <h2>Common Name: {plant.common_name}</h2>
-                <p className="nickname">"{plant.nickname}"</p>
+              <p className="nickname">"{plant.nickname}"</p>
               <h3>
                 <b>{user.name}'s</b> Plant Since {plant.created_at.split("-")[0]}
               </h3>
@@ -90,6 +90,9 @@ export default function ViewPlant({ plant, user, species, closeViewPlant }) {
                   </List.Content>
                 </List.Item>
               </List>
+              <Button color="red" style={{ margin: "auto" }}>
+                Delete Plant
+              </Button>
             </div>
             <br></br>
           </Grid.Column>
