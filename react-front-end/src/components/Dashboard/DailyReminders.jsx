@@ -44,10 +44,9 @@ export default function DailyReminders({ plants, reminders, userId, setIsVisible
       render: () => (
         <>
           <Segment color="olive" stretched style={{ backgroundColor: "rgba(235, 235, 232, 0.90)" }}>
-            <Button color="olive" onClick={() => setIsVisible(true)}>
+            <Button sretched color="olive" onClick={() => setIsVisible(true)}>
               Add New Plant
             </Button>
-            <Button color="grey">Delete Plant</Button>
           </Segment>
         </>
       ),
