@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+import '../styles/App.css';
 import { Segment, Button, Dropdown, Menu, Image, Icon, Label } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';

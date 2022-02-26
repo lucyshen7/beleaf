@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import './Newsfeed.css';
-import { Header, Segment, Container, Grid, Icon, Divider, Item, Button } from 'semantic-ui-react';
-import PostList from './components/Newsfeed/PostList';
-import { getUserById } from './helpers/selectors';
-import Video from './components/Newsfeed/Video';
-import NewPost from './components/Newsfeed/NewPost';
-import FilterPosts from './components/Newsfeed/FilterPosts';
+import '../styles/Newsfeed.css';
+import { Header, Segment, Container, Grid, Icon, Divider, Button } from 'semantic-ui-react';
+import PostList from './Newsfeed/PostList';
+import { getUserById } from '../helpers/selectors';
+import Video from './Newsfeed/Video';
+import NewPost from './Newsfeed/NewPost';
+import FilterPosts from './Newsfeed/FilterPosts';
 
 export default function Newsfeed({ posts, comments, users, userId, createNewPost, renderFilteredPosts, createNewComment }) {
   const [isVisibleForm, setIsVisibleForm] = useState(false);

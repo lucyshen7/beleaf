@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Card, List, Image, Button } from "semantic-ui-react";
-import { getUserById } from "./helpers/selectors";
+import { getUserById } from "../helpers/selectors";
 
 export default function WishlistItem({ id, scientificName, commonName, photo, light_level, soil_type, difficulty, toxic, watering_interval, category, users, plant_user_id, setIsVisible, species_id, setSpecies }) {
 

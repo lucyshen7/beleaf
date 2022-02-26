@@ -37,8 +37,6 @@ In one terminal, `cd` into `react-front-end`. Run `npm install` or `yarn` to ins
 
 In the other terminal, `cd` into `express-back-end`. Run `npm install` or `yarn` to install the dependencies, then `npm start` or `yarn start` to launch the server.
 
-In the browser, you can click on the button and see the data get loaded.
-
 
 ## Create DB for local env.
 CREATE USER beleaf WITH PASSWORD 'beleaf';

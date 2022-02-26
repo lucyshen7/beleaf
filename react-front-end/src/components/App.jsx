@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './index.css';
-import './App.css';
+import '../index.css';
+import '../styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './Navbar';
 import Home from './Home';
 import NotFound from './NotFound';
 import Profile from './Profile';

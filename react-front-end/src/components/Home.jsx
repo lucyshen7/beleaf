@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Image } from "semantic-ui-react";
-import "./index.css";
-import flying_bee from "./assets/flying_bee.png";
-import LoginForm from "./components/LoginForm";
+import "../index.css";
+import flying_bee from "../assets/flying_bee.png";
+import LoginForm from "./LoginForm";
 
 export default function Home({ login, user }) {
   const [isVisibleLogin, setIsVisibleLogin] = useState(false);

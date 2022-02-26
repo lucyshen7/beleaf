@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import dayjs from "dayjs";
-import React, { useState } from "react";
+import React from "react";
 import { useDrag } from "react-dnd";
 import { Button, Image, Icon, Progress, Card } from "semantic-ui-react";
 

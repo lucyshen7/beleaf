@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
-import '../../../Newsfeed.css';
+import '../../../styles/Newsfeed.css';
 import moment from 'moment';
 import { Button, Icon, Image, Segment, Label, Grid, Header } from 'semantic-ui-react';
 import { getUserById } from '../../../helpers/selectors';

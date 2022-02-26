@@ -1,20 +1,20 @@
 import React from 'react';
 import 'semantic-ui-css/semantic.min.css';
-import Rooms from './components/Dashboard/Rooms';
+import Rooms from './Dashboard/Rooms';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-import Namecard from './components/Dashboard/Namecard';
-import Reminders from './components/Dashboard/Reminders';
-import AddPlant from './components/Dashboard/AddPlant';
-import ViewPlant from './components/Dashboard/ViewPlant';
+import Namecard from './Dashboard/Namecard';
+import Reminders from './Dashboard/Reminders';
+import AddPlant from './Dashboard/AddPlant';
+import ViewPlant from './Dashboard/ViewPlant';
 import { Coffee } from './Coffee';
 
-import './components/Dashboard/styles.css';
+import './Dashboard/styles.css';
 import { Header, Segment, Container, Grid, Message, Icon } from 'semantic-ui-react';
-import { getPlantsForUser, getUserById } from './helpers/selectors';
+import { getPlantsForUser, getUserById } from '../helpers/selectors';
 import { useState } from 'react';
-import DailyReminders from './components/Dashboard/DailyReminders';
+import DailyReminders from './Dashboard/DailyReminders';
 
 export default function Dashboard({ users, userId, plants, species, reminders, updateLocation, setAppState }) {
   const user = userId && getUserById(users, userId);

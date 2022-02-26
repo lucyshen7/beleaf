@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import WishlistItem from './WishlistItem';
-import { getPlantsForUser, getUserById, getWishlistPlants } from './helpers/selectors';
-import { Button, Card, Container, Divider, Grid, Icon, Image, Message, Segment, Transition } from 'semantic-ui-react';
-import AddWishlistPlant from './components/Wishlist/AddWishlistPlant';
+import { getPlantsForUser, getUserById, getWishlistPlants } from '../helpers/selectors';
+import { Button, Card, Container, Grid, Icon, Message, Segment } from 'semantic-ui-react';
+import AddWishlistPlant from './Wishlist/AddWishlistPlant';
 import { Link } from 'react-router-dom';
 
 export default function Wishlist({ users, userId, wishlist, user_plants, species, setAppState }) {
