@@ -28,6 +28,7 @@ Beleaf lets users track and show off their plant collection, get watering remind
 !["Screenshot of wishlist"](/docs/wishlist.png)
 
 
+
 ## Running the projects
 
 You need **TWO** terminal windows/tabs for this (or some other plan for running two Node processes).
