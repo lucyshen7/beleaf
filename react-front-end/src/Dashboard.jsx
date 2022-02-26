@@ -11,7 +11,7 @@ import ViewPlant from './components/Dashboard/ViewPlant';
 import { Coffee } from './Coffee';
 
 import './components/Dashboard/styles.css';
-import { Header, Segment, Container, Grid, Message, Icon, Image } from 'semantic-ui-react';
+import { Header, Segment, Container, Grid, Message, Icon } from 'semantic-ui-react';
 import { getPlantsForUser, getUserById } from './helpers/selectors';
 import { useState } from 'react';
 import DailyReminders from './components/Dashboard/DailyReminders';

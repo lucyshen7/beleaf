@@ -12,17 +12,11 @@ Our README is currently a work in progress as we are preparing for Demo Day.
 
 Please come back soon to see a finished result!
 
+## GIFs
 
-
-## Screenshot
-
-!["Screenshot of Landing Page"](https://github.com/julia-gatina/beleaf/blob/master/react-front-end/public/images/landing-page.png?raw=true)
-
-
+!["Gif of login"](./react-front-end/public/images/login.gif)
 
 * Stay tuned for more!
-
-
 
 ## Running the projects
 
