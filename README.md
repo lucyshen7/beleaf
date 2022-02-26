@@ -14,7 +14,9 @@ Please come back soon to see a finished result!
 
 ## GIFs
 
-!["Gif of login"](./react-front-end/public/images/login.gif)
+!["Gif of login"](/docs/login.gif)
+
+!["Gif of watering"](/docs/watering.gif)
 
 * Stay tuned for more!
 
