@@ -1,24 +1,33 @@
-# beleaf
+# beleaf 
 
-Welcome to beleaf! 
+## Welcome to our final project, beleaf! 🪴
 
 This is a houseplant app created by [Josue Arevalo](https://github.com/josuevalo), [Julia Gatina](https://github.com/julia-gatina), and [Lucy Shen](https://github.com/lucyshen7) as a final project for Lighthouse Labs Web Development Bootcamp.  
 
 Beleaf lets users track and show off their plant collection, get watering reminders and care tips, share knowledge with other users and much more.
 
-Beleaf is build with Postgres, Docker, Express (back-end), Node, React (front-end), Semantic UI. 
+**Tech Stack: PostgreSQL, Docker, Express (back-end), Node, React (front-end), Semantic UI.**
 
-Our README is currently a work in progress as we are preparing for Demo Day. 
 
-Please come back soon to see a finished result!
+## Features
 
-## GIFs
-
-!["Gif of login"](/docs/login.gif)
+### Watering Reminders
 
 !["Gif of watering"](/docs/watering.gif)
 
-* Stay tuned for more!
+### Drag & Drop
+
+!["Gif of DnD"](/docs/dnd_view_plant.gif)
+
+### Newsfeed
+
+!["Gif of newsfeed"](/docs/likes_comments.gif)
+
+### Wishlist
+
+!["Screenshot of wishlist"](/docs/wishlist.png)
+
+
 
 ## Running the projects
 
