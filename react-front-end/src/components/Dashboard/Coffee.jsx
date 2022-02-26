@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-import '../styles/Coffee.css';
+import '../../styles/Coffee.css';
 
 export function Coffee() {
   return (

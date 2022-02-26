@@ -8,7 +8,7 @@ import Namecard from './Dashboard/Namecard';
 import Reminders from './Dashboard/Reminders';
 import AddPlant from './Dashboard/AddPlant';
 import ViewPlant from './Dashboard/ViewPlant';
-import { Coffee } from './Coffee';
+import { Coffee } from './Dashboard/Coffee';
 
 import './Dashboard/styles.css';
 import { Header, Segment, Container, Grid, Message, Icon } from 'semantic-ui-react';
