@@ -11,19 +11,19 @@
 
 ## Features
 
-### Watering Reminders
+### Watering Reminders GIF
 
 !["Gif of watering"](/docs/watering.gif)
 
-### Drag & Drop
+### Drag & Drop GIF
 
 !["Gif of DnD"](/docs/dnd_view_plant.gif)
 
-### Newsfeed
+### Newsfeed GIF
 
 !["Gif of newsfeed"](/docs/likes_comments.gif)
 
-### Wishlist
+### Wishlist Screenshot
 
 !["Screenshot of wishlist"](/docs/wishlist.png)
 
