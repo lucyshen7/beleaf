@@ -8,6 +8,7 @@
 
 **Tech Stack: PostgreSQL, Docker, Express (back-end), Node, React (front-end), Semantic UI.**
 
+**Deployed Link:** https://beleaf-project.herokuapp.com/
 
 ## Features
 
