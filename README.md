@@ -6,6 +6,16 @@
 
 ✨ Beleaf lets users track and show off their plant collection, get watering reminders and care tips, share knowledge with other users & much more.
 
+✨ Features include:
+* Watering reminders
+* Drag & drop plants into different rooms
+* Add plants to collection & wishlist
+* Care tips for each plant
+* Newsfeed
+* Create new post
+* Like & comment posts
+* View other users' profiles
+
 **Tech Stack: PostgreSQL, Docker, Express (back-end), Node, React (front-end), Semantic UI.**
 
 **Deployed Link:** https://beleaf-project.herokuapp.com/
