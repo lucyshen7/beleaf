@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import 'semantic-ui-css/semantic.min.css';
 import axios from 'axios';
 import happy_plant from '../../assets/happy_plant.png';
@@ -26,16 +26,7 @@ export default function AddPlant({ user, species, setIsVisible, setAppState, onS
       ...prev,
       location: data.value,
     }));
-  };
-
-  // Scroll to bottom & Scroll to top //
-  const divRef = useRef(null);
-  useEffect(() => {
-    window.scrollTo({
-      top: 150,
-      behavior: 'smooth',
-    })
-  });
+  };  
 
   const onClose = (event) => {
     setIsVisible(false);
@@ -128,8 +119,6 @@ export default function AddPlant({ user, species, setIsVisible, setAppState, onS
                 <h1>Congrats on your new plant!</h1>
                 <br></br>
                 <Image verticalAlign="middle" src={happy_plant} size="normal" />
-
-                {/* <h2>Search for your plant with the drop down menu</h2> */}
               </div>
             )}
             {/* End of ternary */}
@@ -143,7 +132,6 @@ export default function AddPlant({ user, species, setIsVisible, setAppState, onS
                   <Form.Input
                     required={true}
                     onChange={(e, data) => {
-                      console.log('EEEEEE', data);
                       setState((prev) => ({
                         ...prev,
                         nickname: data.value,

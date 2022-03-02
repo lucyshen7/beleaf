@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Form, Grid, Checkbox, Segment, Message } from "semantic-ui-react";
 
 export default function LoginForm({ login, user }) {
-  //const loggedUser = getUserById(users, user);
 
   const submitForm = () => {
     login();

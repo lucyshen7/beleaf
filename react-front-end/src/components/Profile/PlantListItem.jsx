@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import axios from "axios";
 import { Button, Card, Icon, Image, Label, Segment } from "semantic-ui-react";
-import { getPlantById } from "../../helpers/selectors";
 
 export default function PlantListItem({ user_id, id, scientificName, commonName, photo, description, nickname, plant_since, onClick, setSelectedPlant, plant }) {
 

@@ -8,8 +8,6 @@ import { getUserById } from '../helpers/selectors';
 export default function Navbar({ users, user, login, logout }) {
   const loggedUser = getUserById(users, user);
 
-  const dashboardOrHomepage = () => { };
-
   const renderAuthButton = () => {
     if (user) {
       return (

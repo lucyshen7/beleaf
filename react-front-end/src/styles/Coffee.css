@@ -109,19 +109,6 @@ body {
   box-shadow: 3px 3px 7px rgba(1, 44, 23, 0.623);
 }
 
-/* #cup-shade {
-  position: relative;
-  height: 20px;
-  width: 60px;
-  background-color: #f3f3f3;
-  display: inline-block;
-  margin-left: 42%;
-  margin-top: -3px;
-  transform: rotate(50deg);
-  z-index: 1;
-} */
-
-/* didn't cooperate */
 #cup-handle {
   position: relative;
   height: 40px;

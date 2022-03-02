@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "semantic-ui-css/semantic.min.css";
 import PlantList from "./Profile/PlantList";
 import { getPlantsForUser, getUserById } from "../helpers/selectors";
 import "./Profile/Profile.css";
 import { Container, Grid, Segment, Button, Card, Image, Message, Icon } from "semantic-ui-react";
-// import Plant from "./Plant";
 import ViewPlant from "./Dashboard/ViewPlant";
 
 export default function Profile({ plants, users, userId, species }) {

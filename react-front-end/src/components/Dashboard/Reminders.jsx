@@ -17,8 +17,6 @@ export default function Reminders({ plants, reminders, userId, setAppState }) {
     axios
       .patch(`/api/reminders/${plantId}`, { last_watered: new Date() })
       .then((response) => {
-        console.log(response.data);
-        console.log("rerereresponse.data", response.data[0]);
         setTimeout(() => {
           document.querySelector(`label[for=reminder-${plantId}]`).classList.remove("strikethrough");
           document.getElementById(`reminder-${plantId}`).checked = false;

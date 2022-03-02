@@ -10,7 +10,7 @@ export function getPlantsByRoom(plants, location) {
   return filteredPlants;
 }
 
-export function getUserById(users, user_id) {  
+export function getUserById(users, user_id) {
   const user = Number(user_id);
   const foundUser = users.find(item => item.id === user);
   return foundUser;
@@ -37,7 +37,6 @@ export function getWishlistPlants(wishlist, user_id) {
       arr.push(item);
     }
   });
-  console.log('arr is', arr);
   return arr;
 }
 
@@ -47,9 +46,7 @@ export function getSpeciesById(species, species_id) { // takes array of species 
 };
 
 export function getUserReminders(user_id, reminders) {
-
   const userId = Number(user_id);
-
   const filteredReminders = reminders.filter(reminder => reminder.user_id === userId);
   return filteredReminders;
 };

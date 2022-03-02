@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
 import PlantListItem from "./PlantListItem";
 
 export default function PlantList({ plants, user, onClick, setSelectedPlant, plant, species }) {

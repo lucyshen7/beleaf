@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import moment from "moment";
 import "semantic-ui-css/semantic.min.css";
 import { Feed, Divider, Icon } from "semantic-ui-react";

@@ -1,6 +1,6 @@
 import React from "react";
 import { useDrop } from "react-dnd";
-import { Card, Grid } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import { getPlantReminder } from "../../helpers/selectors";
 import Picture from "./Picture";
 

@@ -8,12 +8,10 @@
 
 ✨ Features include:
 * Watering reminders
-* Drag & drop plants into different rooms
-* Add plants to collection & wishlist
-* Care tips for each plant
+* Drag & drop plants into rooms
+* Add plant to collection
+* Add plant to wishlist
 * Newsfeed
-* Create new post
-* Like & comment posts
 * View other users' profiles
 
 **Tech Stack: PostgreSQL, Docker, Express (back-end), Node, React (front-end), Semantic UI.**

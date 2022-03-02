@@ -1,11 +1,6 @@
 import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import { Segment, Grid, Container, Card, Header } from "semantic-ui-react";
-
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import Picture from "./Picture";
-import { useDrop } from "react-dnd";
 import { getPlantsByRoom, getPlantsForUser } from "../../helpers/selectors";
 import { SingleRoom } from "./SingleRoom";
 
