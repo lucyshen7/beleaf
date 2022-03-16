@@ -74,7 +74,6 @@ export default function AddPlant({ user, species, setIsVisible, setAppState, onS
             last_watered: new Date(),
           })
           .then((reminderResponse) => {
-            console.log('reminder reeeeesponse', reminderResponse);
             setAppState((prev) => {
               return { ...prev, reminders: [...prev.reminders, reminderResponse.data[0]], plants: [...prev.plants, newPlant] };
             });

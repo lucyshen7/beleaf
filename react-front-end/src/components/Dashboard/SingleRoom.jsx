@@ -8,7 +8,7 @@ export function SingleRoom({ addImageToBoard, roomName, roomClassName, roomPlant
   const [_, drop] = useDrop(() => ({
     accept: "image",
     drop: (item) => {
-      console.log(item.id);
+      // console.log(item.id);
       addImageToBoard(item.id, roomName);
     },
     collect: (monitor) => ({

@@ -21,7 +21,6 @@ const saveNewComment = (data) => {
   )
 
     .then((res) => {
-      console.log('res.rows[0]', res.rows[0]);
       return res.rows;
     })
     .catch((err) => {

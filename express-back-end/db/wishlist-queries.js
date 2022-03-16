@@ -3,7 +3,6 @@ const db = require('./index');
 const getWishlist = () => {
   return db.query(`SELECT * FROM wishlist_plants JOIN user_plants ON wishlist_plants.plant_id=user_plants.id JOIN species ON user_plants.species_id=species.species_id;`)
     .then((res) => {
-      // console.log('res.rows[0]', res.rows[0]);
       return res.rows;
     })
     .catch((err) => {
@@ -22,7 +21,6 @@ const insertWishlistPlant = (data) => {
     [plant_id, wishlist_user_id, new Date()]
   )
     .then((res) => {
-      // console.log('res.rows[0] EEEEE', res.rows[0]);
       return res.rows;
     })
     .catch((err) => {

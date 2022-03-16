@@ -17,10 +17,8 @@ router.get("/", (req, res) => {
 
 // POST wishlist table
 router.post("/", (req, res) => {
-  // console.log("insert wishlist plant", insertWishlistPlant);
   insertWishlistPlant(req.body)
     .then((response) => {
-      // console.log('response', response);
       res.json(response);
     })
     .catch((error) => console.log(error));

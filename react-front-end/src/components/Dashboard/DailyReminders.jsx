@@ -1,7 +1,6 @@
 import React from "react";
 import "semantic-ui-css/semantic.min.css";
 import { Icon, Button, Tab, Message, Segment } from "semantic-ui-react";
-import wateringcan from "../../assets/wateringcan.png";
 import dayjs from "dayjs";
 import { getUserReminders } from "../../helpers/selectors";
 
