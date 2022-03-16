@@ -4,7 +4,7 @@ import "semantic-ui-css/semantic.min.css";
 import { Button, Card, Icon, Segment } from "semantic-ui-react";
 import { getPlantsForUser } from "../../helpers/selectors";
 
-export default function Namecard({ user, plants }) {
+export default function NameCard({ user, plants }) {
   const avatar = user && user.avatar;
   const name = user && user.name;
   const quote = user && user.quote;
@@ -12,9 +12,9 @@ export default function Namecard({ user, plants }) {
   const plantsForUser = user && getPlantsForUser(plants, user.id);
 
   return (
-    <main class="name-container">
+    <main className="name-container">
       <Card style={{ overflow: 'auto', maxWidth: 2000, backgroundColor: "rgba(225, 205, 48, 0.65)", backgroundImage: "url(https://www.transparenttextures.com/patterns/asfalt-light.png)" }} >
-        <div class="image">
+        <div className="image">
           <img src={avatar} alt="avatar" />
         </div>
         <Card.Content>

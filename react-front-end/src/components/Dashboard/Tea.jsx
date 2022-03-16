@@ -1,14 +1,14 @@
 import React from 'react';
 import { Icon } from 'semantic-ui-react';
-import '../../styles/Coffee.css';
+import '../../styles/Tea.css';
 
-export function Coffee() {
+export function Tea() {
   return (
     <div id="container">
-      <div class="steam" id="steam1"></div>
-      <div class="steam" id="steam2"></div>
-      <div class="steam" id="steam3"></div>
-      <div class="steam" id="steam4"></div>
+      <div className="steam" id="steam1"></div>
+      <div className="steam" id="steam2"></div>
+      <div className="steam" id="steam3"></div>
+      <div className="steam" id="steam4"></div>
 
       <div id="cup">
         <div id="cup-body">

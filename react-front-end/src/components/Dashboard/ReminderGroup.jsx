@@ -34,8 +34,9 @@ export default function ReminderGroup({ checkboxClass, label, reminders }) {
 
     return (
       <>
-        <div class={"ui checkbox " + checkboxClass}>
+        <div className={"ui checkbox " + checkboxClass}>
           <input
+            key={`reminder-${reminder.plant_id}`}
             id={`reminder-${reminder.plant_id}`}
             className="reminder-normal"
             tabindex="0"

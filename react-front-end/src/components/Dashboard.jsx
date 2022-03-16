@@ -4,11 +4,11 @@ import Rooms from './Dashboard/Rooms';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
-import Namecard from './Dashboard/Namecard';
+import NameCard from './Dashboard/NameCard';
 import Reminders from './Dashboard/Reminders';
 import AddPlant from './Dashboard/AddPlant';
 import ViewPlant from './Dashboard/ViewPlant';
-import { Coffee } from './Dashboard/Coffee';
+import { Tea } from './Dashboard/Tea';
 
 import './Dashboard/styles.css';
 import { Header, Segment, Container, Grid, Message, Icon } from 'semantic-ui-react';
@@ -48,9 +48,8 @@ export default function Dashboard({ users, userId, plants, species, reminders, u
                   backgroundImage: 'url(https://www.transparenttextures.com/patterns/asfalt-light.png)',
                 }}
               >
-                  
                 <Header as="h3" className="dash-header">
-                <Coffee />
+                  <Tea />
                   <div
                     style={{
                       fontFamily: 'Lobster',
@@ -102,10 +101,11 @@ export default function Dashboard({ users, userId, plants, species, reminders, u
                   />
                 </DndProvider>
               </Grid.Row>
+              
             </Grid.Column>
             <Grid.Column width={4}>
               <div>
-                <Namecard user={user} plants={plants} />
+                <NameCard user={user} plants={plants} />
                 <Reminders plants={userPlants} reminders={reminders} userId={userId} setAppState={setAppState} />
               </div>
             </Grid.Column>

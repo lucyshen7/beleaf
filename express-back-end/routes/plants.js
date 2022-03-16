@@ -1,10 +1,3 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router = express.Router();
 const plantQueries = require('../db/plant-queries');
@@ -22,11 +15,11 @@ router.get("/", (req, res) => {
     });
 });
 
-// POST to user_plants table
+// UPDATE location of plants (POST to user_plants table)
 router.post("/", (req, res) => {
-  // console.log('Route for updating plant location, req.body', req.body);
-  const { id, location } = req.body;
 
+  const { id, location } = req.body;
+  
   plantQueries.updateLocation(id, location)
     .then((response) => {
       res.json({ response });

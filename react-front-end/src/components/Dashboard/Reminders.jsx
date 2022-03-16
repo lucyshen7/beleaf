@@ -32,7 +32,7 @@ export default function Reminders({ plants, reminders, userId, setAppState }) {
             };
           });
         }, 1200);
-        
+
         setTimeout(() => setWatered(null), 1200);
       });
   };
@@ -65,26 +65,26 @@ export default function Reminders({ plants, reminders, userId, setAppState }) {
         <Card.Header className="reminders-title">
           Watering Reminders <Image src={wateringcan} size="tiny" />{" "}
         </Card.Header>
-        
-        {watered && ( <>
+        {watered && (<>
           <br></br>
           <Label className="watered-feedback" icon="tint" as="a" color="blue" tag>
             <Icon name="tint" />
             You watered {watered.nickname}!
           </Label>
-          </>
+        </>
         )}
       </Card.Content>
       <Card.Content className="reminder-content">
         <Feed>
           <ReminderGroup
+            key={1}
             checkboxClass="overdue"
             label={"Water your baby"}
             reminders={overdueReminders}
             watered={watered}
           />
-          <ReminderGroup label={"Coming due"} reminders={comingdueReminders} />
-          <ReminderGroup label={"Not yet due"} reminders={notdueReminders} />
+          <ReminderGroup key={2} label={"Coming due"} reminders={comingdueReminders} />
+          <ReminderGroup key={3} label={"Not yet due"} reminders={notdueReminders} />
         </Feed>
       </Card.Content>
     </Card>

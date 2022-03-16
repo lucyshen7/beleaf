@@ -1,22 +1,20 @@
-/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import { useDrag } from "react-dnd"; // hook to wire component in DnD system as drag source
 import { Button, Image, Icon, Progress, Card } from "semantic-ui-react";
 
-function Picture({ id, url, key, nickname, setSelectedPlant, plant, reminder }) {
+export default function PlantCard({ id, url, nickname, setSelectedPlant, plant, reminder }) {
 
-  const today = Date.now();
+  const today = Date.now(); // get timestamps and calculate difference
   const lastWatered = reminder && new Date(reminder.last_watered);
 
-  const diff = today - lastWatered;
-  const daysDiff = Math.floor(diff / 1000 / 60 / 60 / 24); // divide by milliseconds in a day calculate difference between 2 days
-  const daysRemaining = reminder && (reminder.watering_interval - daysDiff);
+  const timestampDiff = today - lastWatered;
+  const daysDiff = Math.floor(timestampDiff / 1000 / 60 / 60 / 24); // divide by ms to convert to days
+  const adjustedDaysDiff = daysDiff >= 0 ? daysDiff : 0; // adjust for same day watering
 
-  const waterPercent = reminder && Math.round((daysRemaining / reminder.watering_interval) * 100);
+  const daysRemaining = reminder && (reminder.watering_interval - adjustedDaysDiff);
+  const waterPercent = reminder && Math.round((daysRemaining / reminder.watering_interval) * 100); // takes a value between 0 and 1
 
-  console.log({ waterPercent })
-
-  const [{ isDragging }, drag] = useDrag(() => ({
+  const [{ isDragging }, drag] = useDrag(() => ({ // takes the isDragging and drag methods from the useDrag hook
     type: "image",
     item: { id: id },
     collect: (monitor) => ({ isDragging: !!monitor.isDragging() }), // collecting func, returns truthy value
@@ -72,6 +70,4 @@ function Picture({ id, url, key, nickname, setSelectedPlant, plant, reminder }) 
       </Card>
     </>
   );
-}
-
-export default Picture;
+};

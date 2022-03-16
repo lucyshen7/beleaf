@@ -2,9 +2,9 @@ import React from "react";
 import { useDrop } from "react-dnd";
 import { Card } from "semantic-ui-react";
 import { getPlantReminder } from "../../helpers/selectors";
-import Picture from "./Picture";
+import PlantCard from "./PlantCard";
 
-export function SingleRoom({ addImageToBoard, roomName, roomClassName, roomPlants, setSelectedPlant, reminders, userId }) {
+export function SingleRoom({ addImageToBoard, roomName, roomClassName, roomPlants, setSelectedPlant, reminders }) {
   const [_, drop] = useDrop(() => ({
     accept: "image",
     drop: (item) => {
@@ -20,6 +20,7 @@ export function SingleRoom({ addImageToBoard, roomName, roomClassName, roomPlant
     roomPlants &&
     roomPlants.map((plant) => ({
       id: plant.id,
+      key: plant.id,
       url: plant.photo,
       nickname: plant.nickname,
       plant: plant,
@@ -36,10 +37,10 @@ export function SingleRoom({ addImageToBoard, roomName, roomClassName, roomPlant
         <Card.Group itemsPerRow={2}>
           {PictureList.map((picture) => {
             return (
-              <Picture
-                url={picture.url}
+              <PlantCard
                 id={picture.id}
                 key={picture.id}
+                url={picture.url}
                 nickname={picture.nickname}
                 setSelectedPlant={setSelectedPlant}
                 plant={picture.plant}
