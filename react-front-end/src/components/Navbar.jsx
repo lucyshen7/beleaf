@@ -6,7 +6,7 @@ import logo from '../assets/logo.png';
 import { getUserById } from '../helpers/selectors';
 
 export default function Navbar({ users, user, login, logout }) {
-  const loggedUser = getUserById(users, user);
+  const loggedUser = user && getUserById(users, user);
 
   const renderAuthButton = () => {
     if (user) {

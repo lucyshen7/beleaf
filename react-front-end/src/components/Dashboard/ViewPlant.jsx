@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from "react";
 import "semantic-ui-css/semantic.min.css";
 import { Segment, Image, Grid, Button, Icon, List } from "semantic-ui-react";
 
-export default function ViewPlant({ plant, user, species, closeViewPlant }) {
+export default function ViewPlant({ plant, user, closeViewPlant }) {
   // Scroll to bottom & Scroll to top //
   const divRef = useRef(null);
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../index.css';
 import '../styles/App.css';
@@ -15,40 +15,62 @@ import Wishlist from './Wishlist';
 
 const cookies = new Cookies();
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      plants: [{ user_id: '' }],
-      users: [{ name: '' }],
-      species: [{ name: '' }],
-      posts: [],
-      comments: [],
-      reminders: [],
-      wishlist: '',
-      user: cookies.get('user_id'),
-    };
-  }
+export default function App() {
 
-  login = () => {
+  const [state, setState] = useState({
+    plants: [],
+    users: [{ name: '' }],
+    species: [{ name: '' }],
+    posts: [],
+    comments: [],
+    reminders: [],
+    wishlist: '',
+    user: cookies.get('user_id'),
+  });
+
+  useEffect(() => {
+    Promise.all([
+      axios.get('/api/plants'),
+      axios.get('/api/users'),
+      axios.get('/api/species'),
+      axios.get('/api/posts'),
+      axios.get('/api/comments'),
+      axios.get('/api/wishlist'),
+      axios.get('/api/reminders'),
+    ])
+      .then(([plants, users, species, posts, comments, wishlist, reminders]) => {
+        setState(prev => ({
+          ...prev,
+          plants: plants.data.plants,
+          users: users.data.users,
+          species: species.data.species,
+          posts: posts.data.posts,
+          comments: comments.data.comments,
+          wishlist: wishlist.data.wishlist,
+          reminders: reminders.data,
+        }));
+      });
+  }, []);
+
+  const login = () => {
     cookies.set('user_id', 2, { path: '/' });
-    this.setState({
+    setState({
       user: cookies.get('user_id'),
     });
   };
 
-  logout = () => {
+  const logout = () => {
     cookies.remove('user_id', { path: '/' });
-    this.setState({
+    setState({
       user: '',
     });
   };
 
-  renderFilteredPosts = (topic) => {
+  const renderFilteredPosts = (topic) => {
     axios
       .post('/api/posts/filter', { data: { topic } })
       .then((response) => {
-        this.setState((prev) => {
+        setState((prev) => {
           return { ...prev, posts: [...response.data.posts] };
         });
       })
@@ -57,7 +79,25 @@ class App extends Component {
       });
   };
 
-  createNewPost = (user, title, description, photo, topic) => {
+  const createNewComment = (post_id, comment_text, beleaf_id) => {
+    axios
+      .post('/api/comments', {
+        post_id: post_id,
+        user_id: beleaf_id || state.user,
+        comment_text: comment_text,
+      })
+      .then((response) => {
+        setState((prev) => {
+          return { ...prev, comments: [...prev.comments, response.data[0]] };
+        });
+        console.log('Comment made to db!', response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const createNewPost = (user, title, description, photo, topic) => {
     axios
       .post('/api/posts', {
         user_id: user.id,
@@ -70,8 +110,8 @@ class App extends Component {
         const post_id = response.data[0].id;
         const comment_text = 'Congrats on your new post. Keep growing, we are rooting for you!';
         const beleaf_id = 4;
-        this.createNewComment(post_id, comment_text, beleaf_id);
-        this.setState((prev) => {
+        createNewComment(post_id, comment_text, beleaf_id);
+        setState((prev) => {
           return { ...prev, posts: [...prev.posts, response.data[0]] };
         });
         console.log('Post made to db!', response);
@@ -81,41 +121,23 @@ class App extends Component {
       });
   };
 
-  createNewComment = (post_id, comment_text, beleaf_id) => {
-    axios
-      .post('/api/comments', {
-        post_id: post_id,
-        user_id: beleaf_id || this.state.user,
-        comment_text: comment_text,
-      })
-      .then((response) => {
-        this.setState((prev) => {
-          return { ...prev, comments: [...prev.comments, response.data[0]] };
-        });
-        console.log('Comment made to db!', response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
-
-  updateLocation = (id, location) => {
+  const updateLocation = (id, location) => {
     axios
       .post('/api/plants', {
         id: id,
         location: location,
       })
       .then((response) => {
-        this.setState((prev) => {
+        setState((prev) => {
           return {
-            ...prev,
+            ...prev, // create new obj from copy
             plants: prev.plants.map((plant) => {
               if (plant.id === id) {
                 plant.location = location; // only updating plant location of the plant id passed in
               }
               return plant;
             }),
-          }; // already created new object with ...prev
+          };
         });
         console.log('Put made to db!', response);
       })
@@ -124,148 +146,68 @@ class App extends Component {
       });
   };
 
-  fetchUsers = () => {
-    axios
-      .get('/api/users')
-      .then((response) => {
-        this.setState({
-          users: response.data.users,
-        });
-      });
-  };
-
-  fetchPlants = () => {
-    axios.get('/api/plants').then((response) => {
-      this.setState({
-        plants: response.data.plants,
-      });
-    });
-  };
-
-  fetchReminders = () => {
-    axios.get('/api/reminders').then((response) => {
-      this.setState({
-        reminders: response.data,
-      });
-    });
-  };
-
-  fetchPosts = () => {
-    axios.get('/api/posts').then((response) => {
-      this.setState({
-        posts: response.data.posts,
-      });
-    });
-  };
-
-  fetchComments = () => {
-    axios.get('/api/comments').then((response) => {
-      this.setState({
-        comments: response.data.comments,
-      });
-    });
-  };
-
-  fetchSpecies = () => {
-    axios
-      .get('/api/species')
-      .then((response) => {
-        this.setState({
-          species: response.data.species,
-        });
-      });
-  };
-
-  fetchWishlist = () => {
-    axios
-      .get('/api/wishlist')
-      .then((response) => {
-        this.setState({
-          wishlist: response.data.wishlist,
-        });
-      });
-  };
-
-  componentDidMount() {
-    this.fetchPlants();
-    this.fetchUsers();
-    this.fetchSpecies();
-    this.fetchPosts();
-    this.fetchComments();
-    this.fetchWishlist();
-    this.fetchReminders();
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
-
-  render() {
-    return (
-      <Router>
-        <div
-          className="App"
-        >
-          <Navbar user={this.state.user} login={this.login} logout={this.logout} users={this.state.users} />
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<Home login={this.login} user={this.state.user} />} />
-            <Route
-              path="/dashboard"
-              element={
-                <Dashboard
-                  plants={this.state.plants}
-                  users={this.state.users}
-                  userId={this.state.user}
-                  species={this.state.species}
-                  updateLocation={this.updateLocation}
-                  reminders={this.state.reminders}
-                  setAppState={this.setState.bind(this)}
-                />
-              }
-            />
-            <Route
-              path="/newsfeed"
-              element={
-                <Newsfeed
-                  posts={this.state.posts}
-                  comments={this.state.comments}
-                  users={this.state.users}
-                  userId={this.state.user}
-                  createNewPost={this.createNewPost}
-                  renderFilteredPosts={this.renderFilteredPosts}
-                  createNewComment={this.createNewComment}
-                />
-              }
-            />
-            <Route
-              path="/profile/:user_id"
-              element={<Profile userId={this.state.user} plants={this.state.plants} users={this.state.users} species={this.state.species} />}
-            />
-            <Route
-              path="/plants/:plant_id"
-              element={<Plant plants={this.state.plants} users={this.state.users} user_id={this.state.user} />}
-            />
-            <Route path="/login/:user_id" />
-            <Route path="/logout" />
-            <Route
-              path="/wishlist"
-              element={
-                <Wishlist
-                  users={this.state.users}
-                  userId={this.state.user}
-                  wishlist={this.state.wishlist}
-                  user_plants={this.state.plants}
-                  species={this.state.species}
-                  setAppState={this.setState.bind(this)}
-                />
-              }
-            />
-          </Routes>
-        </div>
-      </Router>
-    );
-  }
+  return (
+    <Router>
+      <div
+        className="App"
+      >
+        <Navbar user={state.user} login={login} logout={logout} users={state.users} />
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home login={login} user={state.user} />} />
+          <Route
+            path="/dashboard"
+            element={
+              <Dashboard
+                plants={state.plants}
+                users={state.users}
+                userId={state.user}
+                species={state.species}
+                updateLocation={updateLocation}
+                reminders={state.reminders}
+                setAppState={setState}
+              />
+            }
+          />
+          <Route
+            path="/newsfeed"
+            element={
+              <Newsfeed
+                posts={state.posts}
+                comments={state.comments}
+                users={state.users}
+                userId={state.user}
+                createNewPost={createNewPost}
+                renderFilteredPosts={renderFilteredPosts}
+                createNewComment={createNewComment}
+              />
+            }
+          />
+          <Route
+            path="/profile/:user_id"
+            element={<Profile userId={state.user} plants={state.plants} users={state.users} species={state.species} />}
+          />
+          <Route
+            path="/plants/:plant_id"
+            element={<Plant plants={state.plants} users={state.users} user_id={state.user} />}
+          />
+          <Route path="/login/:user_id" />
+          <Route path="/logout" />
+          <Route
+            path="/wishlist"
+            element={
+              <Wishlist
+                users={state.users}
+                userId={state.user}
+                wishlist={state.wishlist}
+                user_plants={state.plants}
+                species={state.species}
+                setAppState={setState}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
-
-export default App;
