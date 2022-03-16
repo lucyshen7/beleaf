@@ -19,16 +19,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: 'Click the button to load data!',
-      name: 'Kanye',
-      plants: [{ user_id: 'Hello?' }],
-      users: [{ name: 'Leafy' }],
-      species: [{ name: 'beleaf' }],
+      plants: [{ user_id: '' }],
+      users: [{ name: '' }],
+      species: [{ name: '' }],
       posts: [],
       comments: [],
-      user: cookies.get('user_id'),
-      wishlist: '',
       reminders: [],
+      wishlist: '',
+      user: cookies.get('user_id'),
     };
   }
 
@@ -101,20 +99,6 @@ class App extends Component {
       });
   };
 
-  fetchData = () => {
-    axios
-      .get('/api/data') // You can simply make your requests to "/api/whatever you want"
-      .then((response) => {
-        // handle success
-        console.log(response.data); // The entire response from the Rails API
-
-        console.log(response.data.message); // Just the message
-        this.setState({
-          message: response.data.message,
-        });
-      });
-  };
-
   updateLocation = (id, location) => {
     axios
       .post('/api/plants', {
@@ -142,9 +126,8 @@ class App extends Component {
 
   fetchUsers = () => {
     axios
-      .get('/api/users') // Just to test that DB layer works
+      .get('/api/users')
       .then((response) => {
-        // console.log('Users: ' + response.data.users);
         this.setState({
           users: response.data.users,
         });
@@ -153,7 +136,6 @@ class App extends Component {
 
   fetchPlants = () => {
     axios.get('/api/plants').then((response) => {
-      // console.log('Plants: ' + response.data.plants);
       this.setState({
         plants: response.data.plants,
       });
@@ -162,7 +144,6 @@ class App extends Component {
 
   fetchReminders = () => {
     axios.get('/api/reminders').then((response) => {
-      // console.log('Reminders: ', response.data);
       this.setState({
         reminders: response.data,
       });
@@ -171,7 +152,6 @@ class App extends Component {
 
   fetchPosts = () => {
     axios.get('/api/posts').then((response) => {
-      // console.log('Posts: ' + response.data.posts);
       this.setState({
         posts: response.data.posts,
       });
@@ -180,7 +160,6 @@ class App extends Component {
 
   fetchComments = () => {
     axios.get('/api/comments').then((response) => {
-      // console.log('Comments: ' + response.data.comments);
       this.setState({
         comments: response.data.comments,
       });
@@ -189,9 +168,8 @@ class App extends Component {
 
   fetchSpecies = () => {
     axios
-      .get('/api/species') // Just to test that DB layer works
+      .get('/api/species')
       .then((response) => {
-        // console.log('Species: ' + response.data.species);
         this.setState({
           species: response.data.species,
         });
@@ -200,9 +178,8 @@ class App extends Component {
 
   fetchWishlist = () => {
     axios
-      .get('/api/wishlist') // Just to test that DB layer works
+      .get('/api/wishlist')
       .then((response) => {
-        // console.log('Wishlist: ' + response.data.wishlist);
         this.setState({
           wishlist: response.data.wishlist,
         });
