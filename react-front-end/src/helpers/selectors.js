@@ -12,7 +12,7 @@ export function getPlantsByRoom(plants, location) {
 
 export function getUserById(users, user_id) {
   const user = Number(user_id);
-  const foundUser = users.find(item => item.id === user);
+  const foundUser = users && users.find(item => item.id === user);
   return foundUser;
 }
 

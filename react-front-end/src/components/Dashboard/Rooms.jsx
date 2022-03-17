@@ -9,6 +9,7 @@ export default function Rooms({ plants, userId, updateLocation, setSelectedPlant
   const addImageToBoard = (plant_id, location) => {
     updateLocation(plant_id, location);
   }
+  
   const allPlants = getPlantsForUser(plants, userId);
 
   const livingRoom = 'Living room';

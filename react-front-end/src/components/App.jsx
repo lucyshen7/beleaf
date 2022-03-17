@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../index.css';
-import '../styles/App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import Navbar from './Navbar';
 import Home from './Home';
 import NotFound from './NotFound';
@@ -12,6 +10,8 @@ import Plant from './Plant';
 import Cookies from 'universal-cookie';
 import Newsfeed from './Newsfeed';
 import Wishlist from './Wishlist';
+import '../index.css';
+import '../styles/App.css';
 
 const cookies = new Cookies();
 
